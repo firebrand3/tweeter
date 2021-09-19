@@ -39,3 +39,7 @@ label {
   font-weight: bold;
   display: flex;
 }
+
+.negative-count {
+  color: red;
+}
