@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  console.log("counter loaded");
+  // console.log("counter loaded");
 
   $("textarea").keydown(function () {
     let count = $(this).val().length;
