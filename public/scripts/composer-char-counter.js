@@ -1,7 +1,7 @@
 $(document).ready(function () {
   // console.log("counter loaded");
 
-  $("textarea").keydown(function () {
+  $("textarea").keyup(function () {
     let count = $(this).val().length;
 
     if (count <= 140) {
