@@ -22,7 +22,7 @@ const $tweet = `
             <i class="fas fa-flag"></i><i class="fas fa-retweet"></i><i class="fas fa-heart"></i>
           </div>
         </footer>
-      </article>
+  </article>
     `;
   console.log($tweet)
   return $tweet;
@@ -75,7 +75,7 @@ $(document).ready(() => {
     // alert(loadTweets);
     const loadTweets = $.ajax("/tweets", { method: 'GET' })
     .then(function (data) {
-      console.log('Success: ', data);
+      // console.log('Success: ', data);
       renderTweets(data);
     });
     // renderTweets(data)
@@ -87,9 +87,20 @@ $(document).ready(() => {
     // alert( $( this ).serialize() );
     const formData = $(this).serialize();
     // alert( "Handler for .submit() called." );
-    const posting = $.post("/tweets", formData)
-    console.log(posting)
-    // renderTweets(posting);
+    const formDataLength = formData.length
+    console.log(formDataLength)
+
+    if (formDataLength === 5) {
+      alert("tweet is empty")
+    }else if (formDataLength > 145) {
+      alert("exceeded max charcter limit of 140")
+    } else {
+      const posting = $.post("/tweets", formData)
+      // console.log(posting)
+      // renderTweets(posting);
+    //  
+    }
+    
   });
 
 });
