@@ -5,7 +5,6 @@
  */
 
 const createTweetElement = function(obj) {
-// const $tweet = $(`<article class="tweet">Hello world</article>`);
 const $tweet = `  
   <article>
         <header>
@@ -29,58 +28,37 @@ const $tweet = `
 }
 
 
-// Test / driver code (temporary). Eventually will get this from the server.
-// const data = [
-//   {
-//     "user": {
-//       "name": "Newton",
-//       "avatars": "https://i.imgur.com/73hZDYK.png"
-//       ,
-//       "handle": "@SirIsaac"
-//     },
-//     "content": {
-//       "text": "If I have seen further it is by standing on the shoulders of giants"
-//     },
-//     "created_at": 1461116232227
-//   },
-//   {
-//     "user": {
-//       "name": "Descartes",
-//       "avatars": "https://i.imgur.com/nlhLi3I.png",
-//       "handle": "@rd" },
-//     "content": {
-//       "text": "Je pense , donc je suis"
-//     },
-//     "created_at": 1461113959088
-//   }
-// ]
-
-// const $tweet = createTweetElement(tweetData);
-
-// Test / driver code (temporary)
-// console.log($tweet); // to see what it looks like
-// $('#tweet-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
-
-
 const renderTweets = function(tweets) {
+  // $('#tweet-container').replaceWith('<section id ="tweet-container"></section>')
+  $('#tweet-container').empty();
   for (obj of tweets) {
-    $('#tweet-container').append(createTweetElement(obj))
+    $('#tweet-container').prepend(createTweetElement(obj))
   }
 }
 
 
-// $('#tweet-container').append($(`<article class="tweet">Hello world</article>`))
 $(document).ready(() => {
-  // const loadTweets = $.get("/tweets", function(data) {
-    // alert(loadTweets);
-    const loadTweets = $.ajax("/tweets", { method: 'GET' })
-    .then(function (data) {
-      // console.log('Success: ', data);
-      renderTweets(data);
-    });
-    // renderTweets(data)
-  // })
-  
+
+  // const loadTweets = function() {
+  //   $.get("/tweets", function(data) {
+  //   console.log(data)
+  //   renderTweets(data);
+  //   });
+  // }
+    const loadTweets = function() {
+      $.ajax({
+        url: "/tweets",
+        type: 'GET',
+        dataType: 'JSON',
+        success: (res) => {
+          // console.log(res)
+          renderTweets(res);
+        },
+      error: (error) => {
+        alert("Error on tweet!", error);
+      }  
+      });
+    }
 
   $("form").submit(function(event) {
     event.preventDefault();
@@ -88,19 +66,24 @@ $(document).ready(() => {
     const formData = $(this).serialize();
     // alert( "Handler for .submit() called." );
     const formDataLength = formData.length
-    console.log(formDataLength)
+
 
     if (formDataLength === 5) {
       alert("tweet is empty")
     }else if (formDataLength > 145) {
       alert("exceeded max charcter limit of 140")
     } else {
-      const posting = $.post("/tweets", formData)
-      // console.log(posting)
-      // renderTweets(posting);
-    //  
-    }
-    
+     // $.post("/tweets", formData)
+      $.ajax({
+        url: "/tweets",
+        type: 'POST',
+        data: formData,
+      }).then((res) => {
+        // renderTweets(res);
+        loadTweets(res);
+        }); 
+      };
   });
 
+    loadTweets();
 });
