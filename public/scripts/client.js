@@ -13,7 +13,7 @@ const $tweet = `
           <div class="userid">${obj.user.handle}</div>
         </header>
         <main class="tweet-body">
-          ${obj.content.text}
+        ${escape(obj.content.text)}
         </main>
         <footer>
         <div class="timestamp">${timeago.format(obj.created_at)}</div>
@@ -35,6 +35,12 @@ const renderTweets = function(tweets) {
     $('#tweet-container').prepend(createTweetElement(obj))
   }
 }
+
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
 
 
 $(document).ready(() => {
@@ -66,7 +72,6 @@ $(document).ready(() => {
     const formData = $(this).serialize();
     // alert( "Handler for .submit() called." );
     const formDataLength = formData.length
-
 
     if (formDataLength === 5) {
       alert("tweet is empty")
