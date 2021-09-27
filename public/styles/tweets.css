@@ -8,8 +8,8 @@
 
 
 article:hover {
-  box-shadow: burlywood 5px 10px 3px;
-  color: gainsboro
+  box-shadow: 5px 10px 3px;
+  color: #db8c4f
 }
 
 
@@ -37,5 +37,5 @@ article:hover {
 
 
 .fa-flag:hover, .fa-retweet:hover, .fa-heart:hover {
-  color: goldenrod
+  color: goldenrod;
 }
