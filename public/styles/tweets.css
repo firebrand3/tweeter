@@ -1,6 +1,6 @@
 #tweet-container {
   width: 100%;
-  border: solid;
+  /* border: solid; */
   display:flex;
   justify-content: center;
   flex-direction: column;
@@ -8,10 +8,14 @@
 
 
 article:hover {
-  box-shadow: 5px 10px 3px;
-  color: #db8c4f
+  box-shadow: #FF7F50 5px 5px 3px;
+  /* color: #E6E6FA */
 }
 
+article {
+  border: solid;
+  margin-bottom: 1em;
+}
 
 #tweet-container header, .tweet-body {
   width: 98%;

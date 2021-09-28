@@ -2,6 +2,8 @@
   color: #ffffff;
   height: 120px;
   position: fixed;
+  overflow: hidden;
+  z-index:300;
   top: 0;
   width: 100%;
   background-color: #4056A1;
