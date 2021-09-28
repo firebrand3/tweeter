@@ -42,6 +42,23 @@ const escape = function (str) {
   return div.innerHTML;
 };
 
+const errorMessage = tweetLength => {
+  if (tweetLength === 'long') {
+    $(".error-message").hide();
+    $(".error-message").empty();
+    $(".error-message").append('<i class="fas fa-exclamation-triangle"></i> << Your tweet is too long, Plz respect arbitrary limit of 140 chars >> <i class="fas fa-exclamation-triangle"></i>')
+    $(".error-message").slideDown("slow");
+  } else if (tweetLength === 'empty') {
+    $(".error-message").hide();
+    $(".error-message").empty();
+    $(".error-message").append('<i class="fas fa-exclamation-triangle"></i> << Your tweet is empty >> <i class="fas fa-exclamation-triangle"></i>')
+    $(".error-message").slideDown("slow");
+  } else {
+    $(".error-message").hide();
+    $(".error-message").empty();
+  }
+}
+
 
 $(document).ready(() => {
 
@@ -65,7 +82,6 @@ $(document).ready(() => {
       }  
       });
     }
-
   $("form").submit(function(event) {
     event.preventDefault();
     // alert( $( this ).serialize() );
@@ -74,10 +90,13 @@ $(document).ready(() => {
     const formDataLength = formData.length
 
     if (formDataLength === 5) {
-      alert("tweet is empty")
+      // alert("tweet is empty")
+      errorMessage("empty")
     }else if (formDataLength > 145) {
-      alert("exceeded max charcter limit of 140")
+      errorMessage("long")
+      // alert("exceeded max charcter limit of 140")
     } else {
+      errorMessage();
      // $.post("/tweets", formData)
       $.ajax({
         url: "/tweets",
@@ -88,6 +107,7 @@ $(document).ready(() => {
         loadTweets(res);
         }); 
       };
+      $('textarea').val("")
   });
 
     loadTweets();
