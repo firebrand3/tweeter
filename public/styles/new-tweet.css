@@ -43,3 +43,26 @@ label {
 .negative-count {
   color: red;
 }
+
+.error-message {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  display: none;
+  justify-content: left;
+  background-color: #f4f1ec;
+  color: red;
+  font: "Source Sans Pro";
+  font-weight: bold;
+  border: solid;
+  border-color: red;
+  font-size: 20px;
+  padding: 0.5em;
+  margin-right: 0em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.fa-exclamation-triangle {
+  color: orange;
+}
