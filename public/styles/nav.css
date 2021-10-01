@@ -1,12 +1,14 @@
+/* General style for navigation bar and all its elements */
 .naviBar {
   color: #ffffff;
   height: 120px;
   position: fixed;
   overflow: hidden;
-  z-index:300;
+  z-index: 300;
   top: 0;
   width: 100%;
-  background-color: #4056A1;
+  background-color: #db8c4f;
+  background-image: url("https://www.transparenttextures.com/patterns/ag-square.png");
   font-size: 24px;
   display: flex;
   justify-content: space-between;
@@ -19,10 +21,21 @@
   margin: 1.5em;
 }
 
+/* Define animation for bouncing arrows in navigation bar */
 .fa-angle-double-down {
   color: red;
-  display: flex;
+  /* opacity: 0; */
+  /* transform: translateY(0); */
+  animation: anima 1s ease infinite;
 }
+
+@keyframes anima {
+  to {
+    /* opacity: 1; */
+    transform: translateY(-5px);
+  }
+}
+/* animation defined above */
 
 .naviBarRight {
   color: #ffffff;
@@ -33,4 +46,22 @@
   align-items: center;
   flex-flow: column wrap;
   margin: 1.5em;
+}
+
+/* Media Query to define style for desktop screen*/
+@media only screen and (min-width: 1024px) {
+  .naviBar {
+    color: #ffffff;
+    height: 120px;
+    position: fixed;
+    overflow: hidden;
+    z-index: 300;
+    top: 0;
+    width: 100%;
+    background-color: #4056a1;
+    font-size: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }

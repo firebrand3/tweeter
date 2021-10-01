@@ -1,3 +1,4 @@
+/* General style for header and its element */
 .header {
   height: 100%;
   width: 100%;
@@ -7,4 +8,21 @@
   justify-content: center;
   align-items: center;
   flex-flow: column wrap;
+}
+
+.header img {
+  padding-top: 0.25em;
+}
+
+.header h3 {
+  margin: 0.5em;
+}
+
+/* Media Query to define style for desktop screen*/
+@media only screen and (min-width: 1024px) {
+  .header {
+    margin: 2em;
+    margin-top: 0.5em;
+    width: 100%;
+  }
 }

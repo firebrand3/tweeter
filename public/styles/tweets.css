@@ -1,15 +1,17 @@
+/* Defines style to display tweets on page; */
+/* Style for each element of an indivudual tweet is defined here */
+
 #tweet-container {
   width: 100%;
   /* border: solid; */
-  display:flex;
+  display: flex;
   justify-content: center;
   flex-direction: column;
 }
 
-
 article:hover {
-  box-shadow: #FF7F50 5px 5px 3px;
-  /* color: #E6E6FA */
+  box-shadow: #2a9d8f 5px 5px 3px;
+  /* box-shadow: #e76f51 5px 5px 3px; */
 }
 
 article {
@@ -17,13 +19,37 @@ article {
   margin-bottom: 1em;
 }
 
-#tweet-container header, .tweet-body {
+#tweet-container header {
   width: 98%;
   font-weight: bold;
   font-size: 20px;
   margin: 0.5em;
   display: flex;
   justify-content: space-between;
+}
+
+.tweet-body {
+  width: 98%;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0.5em;
+  word-wrap: break-word;
+  justify-content: left;
+}
+
+#tweet-container .username {
+  width: 98%;
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 0.5em;
+  display: flex;
+  justify-content: left;
+}
+
+#tweet-container .userid {
+  margin-right: 0.5em;
+  display: flex;
+  justify-content: right;
 }
 
 #tweet-container footer {
@@ -39,7 +65,14 @@ article {
   font-weight: 600;
 }
 
+.fa-flag,
+.fa-retweet,
+.fa-heart {
+  margin-left: 0.25em;
+}
 
-.fa-flag:hover, .fa-retweet:hover, .fa-heart:hover {
+.fa-flag:hover,
+.fa-retweet:hover,
+.fa-heart:hover {
   color: goldenrod;
 }

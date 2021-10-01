@@ -22,16 +22,18 @@ body {
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: "Source Sans Pro", "sans-serif";
-  position: relative;
+  /* position: relative; */
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
+/* Genernal style for tweet container */
 .container {
   width: 90%;
   background-color: #f4f1ec;
+  margin-top: 0.5em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,4 +42,20 @@ body {
   /* top: 50%; */
   left: 50%;
   transform: translate(-50%, 0%);
+}
+
+/* Media Query to define style for desktop screen*/
+@media only screen and (min-width: 1024px) {
+  body {
+    width: 30%;
+    padding-top: 8em;
+    display: flex;
+  }
+
+  body .container {
+    width: 65%;
+    margin-top: 0em;
+    margin-left: 5em;
+    transform: translate(-40%, 0%);
+  }
 }

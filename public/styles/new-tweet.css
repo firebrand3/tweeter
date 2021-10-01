@@ -1,6 +1,7 @@
+/* General style for new tweets text area and its elements including button, counter, and error message */
 .new-tweet {
   width: 100%;
-  display:flex;
+  display: flex;
   justify-content: center;
   flex-direction: column;
 }
@@ -16,9 +17,9 @@ button {
   font-size: x-large;
   font-family: "Bungee";
   border: none;
-  background-color:#4056A1;
+  background-color: #4056a1;
   color: #ffffff;
-  margin-top: 0.10em;
+  margin-top: 0.1em;
 }
 
 textarea {
@@ -47,16 +48,16 @@ label {
 .error-message {
   width: 100%;
   text-align: center;
-  display: flex;
+  /* display: flex; */
   display: none;
   justify-content: left;
   background-color: #f4f1ec;
   color: red;
   font: "Source Sans Pro";
   font-weight: bold;
-  border: solid;
-  border-color: red;
-  font-size: 20px;
+  border: dashed #e76f51;
+  border-radius: 25px;
+  font-size: 25px;
   padding: 0.5em;
   margin-right: 0em;
   margin-top: 1em;
