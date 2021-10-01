@@ -3,6 +3,7 @@
 
 <head>
   <!-- Meta Information -->
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
   <title>Tweeter - Home Page</title>
 
   <!-- External CSS -->
@@ -20,9 +21,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
+
   <!-- timeago -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"
+    integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <!-- App CSS -->
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
@@ -35,9 +38,9 @@
 
   <!-- New Tweet CSS -->
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
-  
+
   <!-- Tweets CSS -->
-  <link rel="stylesheet" href="/styles/tweets.css" type="text/css"/>
+  <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
 
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -53,23 +56,25 @@
     <span class="logo">tweeter</span>
     <span class="naviBarRight">Write a new tweet <i class="fas fa-angle-double-down"></i></span>
   </nav>
+  <!-- Profile avatar and name -->
   <header class="header">
     <div>
-      <img src="/images/profile-hex.png">
+      <img src="/images/profile-hex1.png">
     </div>
     <!-- <br> -->
     <div>
-      <h2><b>Asim</b></h2>
+      <h3><span><b>Asim</b></span> Awan</h3>
     </div>
   </header>
-  <!-- Page-specific (main) content here -->
+  <!-- Tweets -->
   <main class="container">
     <section class="new-tweet">
-      <div class ="error-message">
+      <!-- Custom error message displays using errorMessage function defined in client.js -->
+      <div class="error-message">
 
       </div>
-      <!-- <h2>Compose Tweet</h2> -->
-      <form id = "target" action="/tweets" method="POST">
+      <!-- Create new tweet includes text area, button, charcter counter -->
+      <form id="target" action="/tweets" method="POST">
         <label for="tweet-text">What are you humming about?</label>
         <textarea name="text" id="tweet-text"></textarea>
         <div class="submit-and-show">
@@ -78,25 +83,11 @@
         </div>
       </form>
     </section>
+    <!-- Display older tweets, appends using LoadTweets > renderTweets > createTweetElement functions defined in client.js -->
     <section id="tweet-container">
-      <!-- <article>
-        <header>
-          <div class="profile"><img src="https://i.imgur.com/73hZDYK.png"></div>
-          <div class="username">Asim</div>
-          <div class="userid">@firebrand</div>
-        </header>
-        <main class="tweet-body">
-          the quick brown fox jumped over a lazy dog
-        </main>
-        <footer>
-          <div class="timestamp">7 days ago</div>
-          <div class="tweet-action">
-            <i class="fas fa-flag"></i><i class="fas fa-retweet"></i><i class="fas fa-heart"></i>
-          </div>
-        </footer>
-      </article> -->
+
     </section>
-    <p> 
+    <p>
 
 
     </p>
