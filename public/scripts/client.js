@@ -24,7 +24,7 @@ const createTweetElement = function(obj) {
         </footer>
   </article>
     `;
-  console.log($tweet);
+  // console.log($tweet);
   return $tweet;
 };
 
@@ -32,8 +32,8 @@ const createTweetElement = function(obj) {
 const renderTweets = function(tweets) {
   // $('#tweet-container').replaceWith('<section id ="tweet-container"></section>')
   $('#tweet-container').empty();
-  for (obj of tweets) {
-    $('#tweet-container').prepend(createTweetElement(obj));
+  for (tweet of tweets) {
+    $('#tweet-container').prepend(createTweetElement(tweet));
   }
 };
 
@@ -81,7 +81,7 @@ $(document).ready(() => {
         renderTweets(res);
       },
       error: (error) => {
-        alert("Error on tweet!", error);
+        console.log("Error on tweet!", error);
       }
     });
   };
@@ -104,12 +104,19 @@ $(document).ready(() => {
         url: "/tweets",
         type: 'POST',
         data: formData,
-      }).then((res) => {
-        loadTweets(res);
+        success: (res) => {
+          loadTweets(res);  
+        },
+        error: (error) => {
+          console.log("Error on tweet!", error);
+        }
       });
+      // .then((res) => {
+      //   loadTweets(res);
+      // })
+      $('textarea').val("");
+      $('.counter').val(140)
     }
-    $('textarea').val("");
   });
-
   loadTweets();
 });
