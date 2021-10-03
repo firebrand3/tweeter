@@ -2,7 +2,7 @@
 $(document).ready(function() {
 
   $("textarea").keyup(function() {
-    let count = $(this).val().length;
+    const count = $(this).val().length;
 
     if (count <= 140) {
       $(this)
